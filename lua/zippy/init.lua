@@ -156,14 +156,8 @@ M.get_gps = function()
 end
 
 M.get_text = function()
-	local filename = vim.fn.expand("%:t")
 	local current_text = vim.fn.expand("<cword>")
-	local line_nr, _ = unpack(vim.api.nvim_win_get_cursor(0))
-
-	local breadcrumbs = M.get_gps()
-
-	local text = "file: " .. filename .. "~" .. "line: " .. line_nr .. breadcrumbs .. "~" .. current_text
-	return text, current_text
+	return current_text, current_text
 end
 
 M.get_text()
